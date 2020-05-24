@@ -41,7 +41,7 @@ class GuGuDan extends Component<{}, State> {
         }
     }
 
-    onCHange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             value: e.target.value
         })        
@@ -59,10 +59,10 @@ class GuGuDan extends Component<{}, State> {
                 <div>{this.state.first} * {this.state.second} = ?</div>
                 <form onSubmit={this.onSubmitForm}>
                     <input
-                        ref={this.inputEl}
+                        ref={this.onRefInput}
                         type="number"
                         value={this.state.value}
-                        onChange={(e) => setValue(e.target.value)}
+                        onChange={this.onChange}
                     />
                 </form>
                 <div>{this.state.result}</div>
