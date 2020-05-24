@@ -1,34 +1,26 @@
-const path = require("path");
-const webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    mode: 'development',
-    devtool: 'eval',
+    mode: 'development', // production
+    devtool: 'eval', // hidden-source-map
     resolve: {
-        extensions: [
-            '.jsx',
-            '.js',
-            '.tsx',
-            '.ts'
-        ],
+        extensions: ['.jsx', '.js', '.tsx', '.ts'],
     },
+
     entry: {
         app: './client'
     },
-    modules: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader',
-            }
-        ]
+    module: {
+        rules: [{
+            test: /\.tsx?$/,
+            loader: 'awesome-typescript-loader',
+        }]
     },
-    plugins: [
-
-    ],
+    plugins: [],
     output: {
-        filename: '[name].js',
+        filename: 'app.js',
         path: path.join(__dirname, 'dist'),
-
+        publicPath: '/dist',
     }
 }
